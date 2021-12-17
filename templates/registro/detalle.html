@@ -1,0 +1,42 @@
+<!--Detalle del Docente con PK-->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+   <div class="row">
+
+      <h1> Informacion del Docente :</h1>
+   </div>
+   <div class="row">
+
+      <div class="card" style="width:400px">
+
+         
+         {% if detalleSi.avatar %}
+         <img class = "card-img-top" src="{{detalleSi.avatar.url}}" alt="Card image">
+         {% else %}
+
+         <img class = "card-img-top" src="{%static 'img/avatar.jpeg' %}" alt="Card image">
+            
+         {% endif %}
+            
+         <div class="card-body">
+           <h4 class="card-title">{{detalleSi.last_name}}, {{detalleSi.first_name}}</h4>
+           <p class="card-text">
+
+       
+            <li>Edad: {{detalleSi.age}}</li>
+            <li>Materia: {{detalleSi.course}}</li>
+
+           </p>
+           <a href="{% url 'registro_app:update' detalleSi.id %}" class="btn btn-primary">Modificar</a>
+         </div>
+       </div>
+      </div>
+
+   </div>
+
+
+{% endblock content %}

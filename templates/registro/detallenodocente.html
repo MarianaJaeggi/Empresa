@@ -1,0 +1,55 @@
+<!--Detalle del NO Docente con PK-->
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+   <div class="row">
+      <h1> Informacion del No Docente :</h1>
+   </div>
+   <div class="row">
+      <div class="card" style="width: 300px">
+
+         
+         {% if detalleNo.avatar %}
+            <img class = "card-img-top" src="{{detalleNo.avatar.url}}" alt="Card image">
+           {% else %}
+            <img class = "card-img-top" src="{%static 'img/avatar.jpeg' %}" alt="Card image">
+           
+         {% endif %}
+            
+
+
+
+         
+         <div class="card-body">
+            <h4 class="card-title">{{detalleNo.last_name}}, {{detalleNo.first_name}}</h4>
+
+            <p class="card-text">
+               <ul>
+                  <li> {{detalleNo.office}}</li>
+                  <li> {{detalleNo.age}}</li>
+               </ul>
+
+            </p>
+
+            <a href="{% url 'registro_app:updatenodocente' detalleNo.id %}" class="btn btn-primary">Modificar</a>
+
+         </div>
+
+
+      </div>
+
+
+   </div>
+
+
+</div>
+
+
+
+
+{% endblock content %}
